@@ -1,14 +1,14 @@
 package org.ibs.framework.pages;
 
+import org.ibs.framework.managers.DriverManager;
+import org.ibs.framework.managers.PageManager;
+import org.ibs.framework.managers.TestPropManager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.ibs.framework.managers.DriverManager;
-import org.ibs.framework.managers.PageManager;
-import org.ibs.framework.managers.TestPropManager;
 
 import java.time.Duration;
 
@@ -55,7 +55,7 @@ public class BasePage {
      *
      * @see WebDriverWait
      */
-    protected WebDriverWait wait = new WebDriverWait(driverManager.getDriver(), Duration.ofSeconds(1), Duration.ofMillis(100));
+    protected WebDriverWait wait = new WebDriverWait(driverManager.getDriver(), Duration.ofSeconds(10), Duration.ofMillis(1000));
 
 
     /**

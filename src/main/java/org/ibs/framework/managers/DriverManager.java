@@ -1,12 +1,11 @@
 package org.ibs.framework.managers;
 
+import org.ibs.framework.utils.PropConst;
 import org.junit.jupiter.api.Assertions;
 import org.apache.commons.exec.OS;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-
-import static org.ibs.framework.utils.PropConst.*;
 
 /**
  * @author Arkadiy_Alaverdyan
@@ -99,7 +98,7 @@ public class DriverManager {
      * Метод инициализирующий веб драйвер под ОС семейства Windows
      */
     private void initDriverWindowsOsFamily() {
-        initDriverAnyOsFamily(PATH_GECKO_DRIVER_WINDOWS, PATH_CHROME_DRIVER_WINDOWS);
+        initDriverAnyOsFamily(PropConst.PATH_GECKO_DRIVER_WINDOWS, PropConst.PATH_CHROME_DRIVER_WINDOWS);
     }
 
 
@@ -107,25 +106,25 @@ public class DriverManager {
      * Метод инициализирующий веб драйвер под ОС семейства Mac
      */
     private void initDriverMacOsFamily() {
-        initDriverAnyOsFamily(PATH_GECKO_DRIVER_MAC, PATH_CHROME_DRIVER_MAC);
+        initDriverAnyOsFamily(PropConst.PATH_GECKO_DRIVER_MAC, PropConst.PATH_CHROME_DRIVER_MAC);
     }
 
     /**
      * Метод инициализирующий веб драйвер под ОС семейства Unix
      */
     private void initDriverUnixOsFamily() {
-        initDriverAnyOsFamily(PATH_GECKO_DRIVER_UNIX, PATH_CHROME_DRIVER_UNIX);
+        initDriverAnyOsFamily(PropConst.PATH_GECKO_DRIVER_UNIX, PropConst.PATH_CHROME_DRIVER_UNIX);
     }
 
 
     /**
      * Метод инициализирующий веб драйвер под любую ОС
      *
-     * @param gecko - переменная firefox из файла application.properties в классе {@link org.ibs.framework.utils.PropConst}
-     * @param chrome - переменная chrome из файла application.properties в классе {@link org.ibs.framework.utils.PropConst}
+     * @param gecko - переменная firefox из файла application.properties в классе {@link PropConst}
+     * @param chrome - переменная chrome из файла application.properties в классе {@link PropConst}
      */
     private void initDriverAnyOsFamily(String gecko, String chrome) {
-        switch (props.getProperty(TYPE_BROWSER)) {
+        switch (props.getProperty(PropConst.TYPE_BROWSER)) {
             case "firefox":
                 System.setProperty("webdriver.gecko.driver", props.getProperty(gecko));
                 driver = new FirefoxDriver();
@@ -135,7 +134,7 @@ public class DriverManager {
                 driver = new ChromeDriver();
                 break;
             default:
-                Assertions.fail("Типа браузера '" + props.getProperty(TYPE_BROWSER) + "' не существует во фреймворке");
+                Assertions.fail("Типа браузера '" + props.getProperty(PropConst.TYPE_BROWSER) + "' не существует во фреймворке");
         }
     }
 

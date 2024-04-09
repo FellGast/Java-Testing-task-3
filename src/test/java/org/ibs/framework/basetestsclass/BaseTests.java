@@ -1,4 +1,4 @@
-package org.ibs.basetestsclass;
+package org.ibs.framework.basetestsclass;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;

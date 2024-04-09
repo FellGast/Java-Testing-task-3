@@ -1,8 +1,8 @@
 package org.ibs.framework.managers;
 
-import java.util.concurrent.TimeUnit;
+import org.ibs.framework.utils.PropConst;
 
-import static org.ibs.framework.utils.PropConst.*;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author Arkadiy_Alaverdyan
@@ -29,12 +29,12 @@ public class InitManager {
      *
      * @see DriverManager
      * @see TestPropManager#getProperty(String)
-     * @see org.ibs.framework.utils.PropConst
+     * @see PropConst
      */
     public static void initFramework() {
         driverManager.getDriver().manage().window().maximize();
-        driverManager.getDriver().manage().timeouts().implicitlyWait(Integer.parseInt(props.getProperty(IMPLICITLY_WAIT)), TimeUnit.SECONDS);
-        driverManager.getDriver().manage().timeouts().pageLoadTimeout(Integer.parseInt(props.getProperty(PAGE_LOAD_TIMEOUT)), TimeUnit.SECONDS);
+        driverManager.getDriver().manage().timeouts().implicitlyWait(Integer.parseInt(props.getProperty(PropConst.IMPLICITLY_WAIT)), TimeUnit.SECONDS);
+        driverManager.getDriver().manage().timeouts().pageLoadTimeout(Integer.parseInt(props.getProperty(PropConst.PAGE_LOAD_TIMEOUT)), TimeUnit.SECONDS);
     }
 
     /**
